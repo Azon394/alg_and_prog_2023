@@ -1,0 +1,42 @@
+#include <iostream>
+
+int main() {
+    int N, M, KLM, a, c, b, v;
+    std::cin >> N;
+    M = 2;
+    KLM = M;
+    a = 1;
+    c = 1;
+    b = 0;
+    v = 1;
+    for (int i = 1; i <= N; ++i) {
+        std::cout << i << " ";
+        if (v == 1) {
+            a = a + 1;
+            if (a >= KLM) {
+                std::cout << std::endl;
+                a = 1;
+                KLM = KLM - 1;
+                if (KLM == 1) {
+                    M = M;
+                    KLM = M;
+                    v = 0;
+                    c = 2;
+                }
+            }
+        }
+        else if (v == 0) {
+            b = b + 1;
+            if (b == c) {
+                std::cout << std::endl;
+                c = c + 1;
+                b = 0;
+                if (c > M) {
+                    M = M + 1;
+                    c = 1;
+                    v = 1;
+                }
+            }
+        }
+    }
+}

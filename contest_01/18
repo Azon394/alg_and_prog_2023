@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+using namespace std;
+string getColumnName(int n) {
+    string result = "";
+    while (n > 0)
+    {
+        int index = (n - 1) % 26;
+        result = char(index + 'A') + result;
+        n = (n - 1) / 26;
+    }
+    return result;
+}
+int main() {
+    int n;
+    cin >> n;
+    cout << getColumnName(n);
+}

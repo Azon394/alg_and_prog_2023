@@ -1,0 +1,31 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+
+func main() {
+	var n string
+	var b string
+	var f bool = true
+	fmt.Scan(&n, &b)
+	arr1 := strings.Split(n, "")
+	arr2 := strings.Split(b, "")
+	sort.Strings(arr1)
+	sort.Strings(arr2)
+	for i := 0; i < len(n); i++ {
+		if arr1[i] == arr2[i] {
+			continue
+		} else {
+			f = false
+			break
+		}
+	}
+	if f {
+		fmt.Println("YES")
+	} else {
+		fmt.Println("NO")
+	}
+}

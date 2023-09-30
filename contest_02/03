@@ -1,0 +1,7 @@
+bool compare(std::string a1, std::string a2) {
+    if (count(a1.begin(), a1.end(), '1') > count(a2.begin(), a2.end(), '1'))
+        return true;
+    if (count(a1.begin(), a1.end(), '1') == count(a2.begin(), a2.end(), '1'))
+        return stoi(a1) < stoi(a2);
+    return false;
+}

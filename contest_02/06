@@ -1,0 +1,40 @@
+#include <sstream>
+#include <cstring>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+Student make_student(const string& str) {
+    Student stud;
+
+    istringstream iss(str);
+    getline(iss, stud.name, ';');  
+    getline(iss, stud.group);   
+
+    return stud;
+}
+
+bool is_upper(Student s1, Student s2) {
+    if (s1.group == s2.group)
+        return s1.name < s2.name;
+    return s1.group < s2.group;
+}
+
+void print(std::vector<Student> students) {
+    if (students.size() == 0) {
+        std::cout << "Empty list!";
+    } else {
+        std::string g = "";
+        for (int i = 0; i < students.size(); i++) {
+            if (g != students[i].group) {
+                g = students[i].group;
+                std::cout << g << std::endl;
+                std::cout << "- " << students[i].name << std::endl;
+            }
+            else {
+                std::cout << "- " << students[i].name << std::endl;
+            }
+            
+        }
+    }
+    
+}

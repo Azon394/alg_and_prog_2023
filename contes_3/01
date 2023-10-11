@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+	int n, m, c;
+	vector<int> v3;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> c;
+		v3.push_back(c);
+	}
+	cin >> m;
+	for (int i = 0; i < m; i++) {
+		cin >> c;
+		v3.push_back(c);
+	}
+	sort(v3.begin(), v3.end());
+	for (int i = 0; i < v3.size(); i++) {
+		cout << v3[i] << " ";
+	}
+}

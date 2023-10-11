@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <stack>
+int main() {
+    std::string input;
+    std::getline(std::cin, input, '!');
+    std::stack<char> string;
+    bool b = true;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == '(' or input[i] == '[' or input[i] == '{') {
+            string.push(input[i]);
+        }
+        else if (input[i] == ')' or input[i] == ']' or input[i] == '}') {
+            if (string.empty()) { 
+                b = false;
+                break;
+            }
+            else if ((input[i] == ')' && string.top() == '(') or (input[i] == '}' && string.top() == '{') or (input[i] == ']' && string.top() == '[')) {
+                string.pop();
+            }
+            else { 
+                b = false;
+                break;
+            }
+        }
+    }
+    if (b) { std::cout << "YES"; }
+    else { std::cout << "NO"; }
+}

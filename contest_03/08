@@ -1,0 +1,38 @@
+package main
+
+import "fmt"
+
+func Find(m []string, x string) int {
+	for i, n := range m {
+		if x == n {
+			return i
+		}
+	}
+	return len(m)
+}
+func Contains(m []string, x string) bool {
+	for _, n := range m {
+		if x == n {
+			return true
+		}
+	}
+	return false
+}
+func main() {
+	var n int
+	var m []string
+	var str string
+	fmt.Scan(&n)
+	for i := 0; i < n; i++ {
+		fmt.Scan(&str)
+		if Contains(m, str) {
+			ind := Find(m, str)
+			m = append(m[:ind], m[ind+1:]...)
+		} else {
+			m = append(m, str)
+		}
+	}
+	for _, v := range m {
+		fmt.Println(v)
+	}
+}

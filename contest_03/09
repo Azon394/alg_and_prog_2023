@@ -1,0 +1,44 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var ans [2]int
+	var f bool = false
+	var n int
+	var x int
+	var s int
+	fmt.Scan(&n)
+	fmt.Scan(&x)
+	var arr1 []int
+	for i := 0; i < n; i++ {
+		fmt.Scan(&s)
+		arr1 = append(arr1, s)
+	}
+	for _, value := range arr1 {
+		if value >= x {
+			continue
+		}
+		for _, value1 := range arr1 {
+			if f {
+				break
+			}
+			if value1 >= x {
+				continue
+			}
+			if value+value1 == x {
+				ans[0] = value
+				ans[1] = value1
+				f = true
+				break
+			}
+		}
+	}
+	if ans[0] > ans[1] {
+		fmt.Print(ans[1], ans[0])
+	} else {
+		fmt.Print(ans[0], ans[1])
+	}
+}

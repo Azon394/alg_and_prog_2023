@@ -1,0 +1,73 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+bool isDigit(char c) {
+    for (auto i : "01234567890") {
+        if (c == i) {
+            return true;
+        }
+    }
+    return false;
+}
+bool prior(char top, char i) {
+    if (((top == '^') and ((i == '*') or (i == '/') or (i == '%'))) or (((top == '*') or (top == '/') or (top == '%')) and ((i == '+') or (i == '-'))) or ((top == '^') and ((i == '+') or (i == '-')))) {
+        return true;
+    }
+    else if ((top == '+' and i == '-') or (top == '-' and i == '+') or (top == '*' and i == '/') or (top == '/' and i == '*') or (top == '%' and i == '*') or (top == '%' and i == '/') or (top == '*' and i == '%') or (top == '/' and i == '%')) {
+        return true;
+    }
+    else if (top == i) {
+        if (top == '^') {
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+int main() {
+    string str, ans;
+    bool f = false;
+    stack<char> s;
+    getline(cin, str);
+    for (int j = 0; j < str.length(); j++) {
+        char i = str[j];
+        if (isDigit(i)) {
+            ans += i;
+            if (not(isDigit(str[j+1]))) {
+                ans += " ";
+            }
+        }
+        else if (i == '(') {
+            f = true;
+            s.push(i);
+        }
+        else if (i == ')') {
+            while (s.top() != '(') {
+                ans = ans + s.top() + " ";
+                s.pop();
+            }
+            s.pop();
+        }
+        else {
+            if (not(s.empty())) {
+                while (prior(s.top(), i)) {
+                    ans = ans + s.top() + " ";
+                    s.pop();
+                    if (s.empty()) {
+                        break;
+                    }
+                }
+            }
+            s.push(i);
+        }
+    }
+    if (ans[ans.length() - 1] != ' ') {
+        ans += " ";
+    }
+    while (not(s.empty())) {
+        ans = ans + s.top() + " ";
+        s.pop();
+    }
+    cout << ans;
+}

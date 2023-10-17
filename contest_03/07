@@ -1,0 +1,42 @@
+#include <iostream>
+#include <stack>
+#include <string>
+#include <map>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+int main() {
+    string str, target;
+    map<string, int> ans;
+    cin >> target;
+    bool f = false;
+    ifstream file("data.txt");
+    file >> str;
+    while (str != "stopword") {
+        if (f) {
+            ans[str]++;
+            f = false;
+        }
+        if (str == target) {
+            f = true;
+        }
+        file >> str;
+    }
+    vector<pair<int, string>> fr;
+    for (const auto& el : ans) {
+        fr.push_back({ el.second, el.first });
+    }
+    sort(fr.begin(), fr.end(), [](const auto& el1, const auto& el2) { return el1.first > el2.first; });
+    if (fr.empty()) {
+        cout << "-";
+    }
+    else {
+        for (int i = 0; i < fr.size(); i++) {
+            if (i == 3) {
+                break;
+            }
+            cout << fr[i].second << ' ';
+        }
+    }
+}

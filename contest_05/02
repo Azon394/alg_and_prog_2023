@@ -1,0 +1,23 @@
+class Water {
+public:
+	int temperature;
+	Water(int temp) {
+		temperature = temp;
+	}
+};
+class Teapot {
+public:
+	int temp;
+	Teapot(Water water) {
+		temp = water.temperature;
+	}
+	bool is_boiling() {
+		if (temp >= 100) {
+			return true;
+		}
+		else return false;
+	}
+	void heat_up(int x) {
+		temp += x;
+	}
+};

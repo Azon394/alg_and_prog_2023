@@ -57,3 +57,9 @@
 | [1. Количество выполненных задач](./contest_04/01) | ![](./img/go.png) |
 | [2. Количество выполненных задач](./contest_04/02) | ![](./img/cpp.png) |
 
+|[Контест 5](https://contest.yandex.ru/contest/55465/problems/) |  |
+| --- | :-: |
+| [1. Get a cat](./contest_05/01) | ![](./img/go.png) |
+| [2. Класс. Чайник](./contest_05/02) | ![](./img/cpp.png) |
+| [2. Класс. Комплексное число](./contest_05/03) | ![](./img/cpp.png) |
+

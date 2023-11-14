@@ -59,7 +59,7 @@
 
 |[Контест 5](https://contest.yandex.ru/contest/55465/problems/) |  |
 | --- | :-: |
-| [1. Get a cat](./contest_05/01) | ![](./img/go.png) |
+| [1. Get a cat](./contest_05/01) | ![](./img/cpp.png) |
 | [2. Класс. Чайник](./contest_05/02) | ![](./img/cpp.png) |
 | [2. Класс. Комплексное число](./contest_05/03) | ![](./img/cpp.png) |
 
